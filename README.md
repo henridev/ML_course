@@ -17,7 +17,6 @@ P(y=0|x;\theta) = 1 - P(y=1|x;\theta) \\
 $$
 
 $$
-
 y = 1 \text{ if } h_\theta(x)\gt0.5 \text{ holds true if } \theta^T*x \gt 0 \\
 \dots \\
 y = 0 \text{ if } h_\theta(x)\lt0.5 \text{ holds true if } \theta^T*x \lt 0
@@ -73,11 +72,13 @@ $$
 
 <img src="https://www.learnopencv.com/wp-content/uploads/2017/10/mlp-diagram.jpg"/> 
 $$
-a_1^2 = g(\theta^{(1)}_{11}x_1 + \theta^{(1)}_{12}x_2 + \theta^{(1)}_{13}x_3 + \theta^{(1)}_{14}x_4)\\a_2^2 = g(\theta^{(1)}_{21}x_1 + \theta^{(1)}_{22}x_2 + \theta^{(1)}_{23}x_3 + \theta^{(1)}_{24}x_4)\\a_3^2 = g(\theta^{(1)}_{31}x_1 + \theta^{(1)}_{32}x_2 + \theta^{(1)}_{33}x_3 + \theta^{(1)}_{34}x_4)\\\dots \\h_\theta(x) = a_1^{(3)}=g(\theta^{(2)}_{11}a^{2}_1 + \theta^{(2)}_{12}a^{2}_2 + \theta^{(2)}_{13}a^{2}_3 )
+a_1^2 = g(\theta^{(1)}_{11}x_1 + \theta^{(1)}_{12}x_2 + \theta^{(1)}_{13}x_3 + \theta^{(1)}_{14}x_4)\\a_2^2 = g(\theta^{(1)}_{21}x_1 + \theta^{(1)}_{22}x_2 + \theta^{(1)}_{23}x_3 + \theta^{(1)}_{24}x_4)\\a_3^2 = g(\theta^{(1)}_{31}x_1 + \theta^{(1)}_{32}x_2 + \theta^{(1)}_{33}x_3 + \theta^{(1)}_{34}x_4)\\\dots \\h_\theta(x) = a_1^{(3)}=g(\theta^{(2)}_{11}a^{2}_1 + \theta^{(2)}_{12}a^{2}_2 + \theta^{(2)}_{13}a^{2}_3 ) \\
+a^i_j = \text{layer i the j the neuron activation which becomes input for next layer} \\
+g() = \text{is the sigmoid activation function}
 $$
 
 
-vectorized:
+vectorized implementation:
 $$
 x =\begin{bmatrix}x_0 \\x_1 \\x_2  \\x_3  \\\end{bmatrix}z^2 =\begin{bmatrix} z_1^{(2)} \\z_2^{(2)}  \\z_3^{(2)}  \\\end{bmatrix} \\z^{2} = \theta^{(1)}*x \text{ is equal to } z^{2} = \theta^{(1)}*a^{(1)} \\a^{(2)} = g(z^{2}) \text{ add } a^{(2)}_0 = 1 \\z^{3} = \theta^{(2)}*a^{(2)} \\ah_\theta = a^{3} = g(z^{(3)})
 $$
